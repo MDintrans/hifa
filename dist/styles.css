@@ -1,16 +1,16 @@
 :root {
-  --navy-950: #041827;
-  --navy-900: #061f35;
-  --navy-800: #082e4a;
-  --navy-700: #0b3f61;
-  --blue-600: #0878f9;
-  --blue-500: #1688ff;
+  --navy-950: #061d33;
+  --navy-900: #0b2d4f;
+  --navy-800: #123a5c;
+  --navy-700: #18496f;
+  --blue-600: #0a84ff;
+  --blue-500: #0a84ff;
   --cyan-400: #19b8ed;
-  --ice-100: #eef8ff;
+  --ice-100: #e5eaf0;
   --ice-50: #f7fbff;
-  --ink: #071226;
-  --muted: #66728c;
-  --line: #dfe8f1;
+  --ink: #0b2d4f;
+  --muted: #64748b;
+  --line: #e5eaf0;
   --white: #ffffff;
   --shell: min(1180px, calc(100vw - 48px));
   --radius-xl: 32px;
@@ -57,11 +57,8 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
   box-shadow: 0 10px 40px rgba(8, 46, 74, .07); backdrop-filter: blur(18px);
 }
 .nav-wrap { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 32px; }
-.brand { display: inline-flex; align-items: center; gap: 10px; flex: none; }
-.brand-mark { width: 45px; height: 45px; display: block; }
-.brand-type { display: flex; flex-direction: column; line-height: .9; }
-.brand-type strong { font: 800 25px/.9 "Manrope", sans-serif; letter-spacing: .02em; }
-.brand-type span { margin-top: 6px; color: var(--blue-600); font: 700 9px/1 "Manrope", sans-serif; letter-spacing: .42em; }
+.brand { display: inline-flex; align-items: center; flex: none; }
+.brand-logo { display: block; width: 184px; height: auto; }
 .desktop-nav { display: flex; align-items: center; gap: 36px; margin-left: auto; }
 .desktop-nav a { position: relative; color: #24364c; font-size: 14px; font-weight: 600; }
 .desktop-nav a::after {
@@ -298,7 +295,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 
 .site-footer { color: white; background: var(--navy-950); }
 .footer-top { display: grid; grid-template-columns: 1fr 1fr auto; align-items: center; gap: 40px; padding: 54px 0 40px; }
-.footer-brand .brand-type strong { color: white; }
+.footer-brand .brand-logo { width: 192px; }
 .footer-top > p { margin: 0; color: #718da2; font-size: 12px; }
 .back-top { display: flex; align-items: center; gap: 12px; color: #9eb2c1; font-size: 11px; font-weight: 600; }
 .back-top span { display: grid; place-items: center; width: 31px; height: 31px; color: white; border: 1px solid #2b4961; border-radius: 50%; }
@@ -351,9 +348,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 @media (max-width: 560px) {
   :root { --shell: calc(100vw - 28px); }
   .site-header { height: 72px; }
-  .brand-mark { width: 38px; height: 38px; }
-  .brand-type strong { font-size: 21px; }
-  .brand-type span { font-size: 7px; }
+  .brand-logo { width: 158px; }
   .mobile-menu { top: 72px; }
   .hero { padding-top: 116px; background-size: 56px 56px; }
   .eyebrow { font-size: 9px; letter-spacing: .15em; }
