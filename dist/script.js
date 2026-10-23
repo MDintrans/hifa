@@ -4,10 +4,12 @@ const mobileMenu = document.querySelector('#mobile-menu');
 const projectForm = document.querySelector('#project-form');
 const formStatus = document.querySelector('#form-status');
 
+// Cambia la apariencia de la cabecera al desplazarse por la página.
 const updateHeader = () => header.classList.toggle('scrolled', window.scrollY > 20);
 updateHeader();
 window.addEventListener('scroll', updateHeader, { passive: true });
 
+// Controla el menú de navegación en pantallas pequeñas.
 const closeMenu = () => {
   menuButton.setAttribute('aria-expanded', 'false');
   mobileMenu.hidden = true;
@@ -26,6 +28,7 @@ window.addEventListener('resize', () => {
   if (window.innerWidth > 820) closeMenu();
 });
 
+// Muestra progresivamente los bloques cuando entran en el área visible.
 const revealItems = document.querySelectorAll('.reveal');
 revealItems.forEach((item) => {
   const delay = item.dataset.delay;
@@ -48,6 +51,7 @@ if ('IntersectionObserver' in window) {
   revealItems.forEach((item) => item.classList.add('is-visible'));
 }
 
+// Genera un resumen descargable sin enviar información fuera del dispositivo.
 projectForm.addEventListener('submit', (event) => {
   event.preventDefault();
   const data = new FormData(projectForm);
@@ -88,4 +92,5 @@ projectForm.addEventListener('submit', (event) => {
   formStatus.textContent = 'Tu resumen está listo. Descárgalo y compártelo por el canal oficial de HIFA Systems.';
 });
 
+// Mantiene actualizado el año del pie de página.
 document.querySelector('#year').textContent = new Date().getFullYear();

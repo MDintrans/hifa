@@ -20,5 +20,5 @@
     <path d="M82 10h11v18h25V10h11v43h-11V37H93v16H82z"/><path d="M140 10h11v43h-11z"/>
     <path d="M162 10h38v9h-27v9h24v9h-24v16h-11z"/><path d="M204 53l19-43h12l19 43h-12l-13-30-13 30z"/>
   </g>
-  <text x="83" y="68" fill="#0A84FF" font-family="Arial, Helvetica, sans-serif" font-size="10" font-weight="700" letter-spacing="7.4">SYSTEMS</text>
+  <text x="83" y="69" textLength="171" lengthAdjust="spacing" fill="#0A84FF" font-family="Arial, Helvetica, sans-serif" font-size="12.5" font-weight="700">SYSTEMS</text>
 </svg>
