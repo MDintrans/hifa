@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" role="img" aria-labelledby="title desc">
+  <title id="title">HIFA Systems</title>
+  <desc id="desc">Logotipo oficial apilado para fondo oscuro</desc>
+  <defs>
+    <linearGradient id="stack-ribbon-a" x1="12" y1="18" x2="58" y2="48" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0A84FF"/>
+      <stop offset=".55" stop-color="#00A9E6"/>
+      <stop offset="1" stop-color="#0A84FF"/>
+    </linearGradient>
+    <linearGradient id="stack-ribbon-b" x1="14" y1="45" x2="55" y2="20" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0A84FF"/>
+      <stop offset="1" stop-color="#00A9E6"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Símbolo de conexiones HIFA -->
+  <g transform="translate(44 3)">
+    <path d="M17 14v44M55 14v44" stroke="#0A84FF" stroke-width="7.5" stroke-linecap="round"/>
+    <path d="M17 22c9 0 16 13 29 14 4.8.4 8-2.3 9-7v15c-8 5-17 1-25-5-5-3.8-9-4.4-13-2z" fill="url(#stack-ribbon-a)"/>
+    <path d="M17 36c8-5 14-3 21 2 7 5 12 5 17 2v9c-9 3-16 0-23-5-6-4-10-4-15 0z" fill="url(#stack-ribbon-b)" opacity=".9"/>
+    <circle cx="17" cy="12" r="9" fill="#00A9E6"/>
+    <circle cx="17" cy="60" r="9" fill="#0A84FF"/>
+    <circle cx="55" cy="12" r="9" fill="#00A9E6"/>
+    <circle cx="55" cy="60" r="9" fill="#0A84FF"/>
+  </g>
+
+  <!-- Wordmark oficial -->
+  <g fill="#FFFFFF" transform="translate(-35 80) scale(.68)">
+    <path d="M82 10h11v18h25V10h11v43h-11V37H93v16H82z"/>
+    <path d="M140 10h11v43h-11z"/>
+    <path d="M162 10h38v9h-27v9h24v9h-24v16h-11z"/>
+    <path d="M204 53l19-43h12l19 43h-12l-13-30-13 30z"/>
+  </g>
+  <text x="22" y="145" textLength="116" lengthAdjust="spacing" fill="#39B7FF" font-family="Arial, Helvetica, sans-serif" font-size="10" font-weight="700">SYSTEMS</text>
+</svg>

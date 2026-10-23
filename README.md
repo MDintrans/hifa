@@ -13,7 +13,8 @@ Sitio institucional de HIFA Systems, preparado como una página estática y resp
 │   ├── img/
 │   │   ├── favicon.svg
 │   │   ├── logo-hifa.svg
-│   │   └── logo-hifa-dark.svg
+│   │   ├── logo-hifa-dark.svg
+│   │   └── logo-hifa-stacked-dark.svg
 │   └── js/
 │       └── script.js
 ├── .nojekyll
