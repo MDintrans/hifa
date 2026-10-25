@@ -3,6 +3,7 @@ const menuButton = document.querySelector('.menu-button');
 const mobileMenu = document.querySelector('#mobile-menu');
 const projectForm = document.querySelector('#project-form');
 const formStatus = document.querySelector('#form-status');
+const backTopLink = document.querySelector('.back-top');
 
 // Cambia la apariencia de la cabecera al desplazarse por la página.
 const updateHeader = () => header.classList.toggle('scrolled', window.scrollY > 20);
@@ -26,6 +27,15 @@ menuButton.addEventListener('click', () => {
 mobileMenu.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu));
 window.addEventListener('resize', () => {
   if (window.innerWidth > 820) closeMenu();
+});
+
+// Regresa al inicio desde el pie de página y respeta las preferencias de movimiento.
+backTopLink.addEventListener('click', (event) => {
+  event.preventDefault();
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+  if (window.location.hash !== '#inicio') history.pushState(null, '', '#inicio');
 });
 
 // Muestra progresivamente los bloques cuando entran en el área visible.
