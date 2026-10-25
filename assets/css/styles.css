@@ -337,6 +337,19 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 .contact-copy, .project-form { position: relative; z-index: 1; }
 .contact-copy h2 span { color: #4ab8ff; }
 .contact-copy > p:not(.kicker) { max-width: 390px; margin: 24px 0; color: #a7bdce; line-height: 1.7; }
+.contact-channels { display: grid; gap: 10px; max-width: 390px; margin-top: 30px; }
+.contact-channel { display: grid; grid-template-columns: 42px 1fr auto; align-items: center; gap: 13px; min-height: 66px; padding: 10px 13px; color: white; background: rgba(255,255,255,.055); border: 1px solid rgba(255,255,255,.12); border-radius: 14px; transition: background .2s ease, border-color .2s ease, transform .2s ease; }
+.contact-channel:hover { background: rgba(255,255,255,.1); border-color: rgba(75,187,255,.45); transform: translateY(-2px); }
+.contact-channel:focus-visible { outline: 3px solid rgba(75,187,255,.35); outline-offset: 3px; }
+.contact-channel[aria-disabled="true"] { cursor: not-allowed; opacity: .52; }
+.contact-channel[aria-disabled="true"]:hover { background: rgba(255,255,255,.055); border-color: rgba(255,255,255,.12); transform: none; }
+.contact-channel-icon { display: grid; place-items: center; width: 42px; height: 42px; color: #55c1ff; background: rgba(64,182,255,.11); border-radius: 11px; }
+.contact-channel-whatsapp .contact-channel-icon { color: #59dfa7; background: rgba(61,214,151,.1); }
+.contact-channel-icon svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.contact-channel small, .contact-channel strong { display: block; }
+.contact-channel small { margin-bottom: 2px; color: #7898ae; font-size: 9px; letter-spacing: .06em; text-transform: uppercase; }
+.contact-channel strong { overflow-wrap: anywhere; font: 600 13px "Manrope"; }
+.contact-channel-arrow { color: #6f91a9; font-size: 15px; }
 .contact-note { display: flex; align-items: center; gap: 10px; margin-top: 35px; color: #8faabd; font-size: 11px; }
 .contact-note span { display: grid; place-items: center; width: 23px; height: 23px; color: #45d9a3; background: rgba(69,217,163,.1); border-radius: 50%; }
 .project-form { display: grid; gap: 20px; padding: 30px; background: rgba(255,255,255,.065); border: 1px solid rgba(255,255,255,.12); border-radius: 22px; }
@@ -348,7 +361,10 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 .project-form input:focus, .project-form select:focus, .project-form textarea:focus { border-color: #43b6ff; box-shadow: 0 0 0 3px rgba(67,182,255,.12); }
 .button-light { justify-self: start; color: var(--navy-900); background: white; }
 .button-light .button-icon { color: white; background: var(--blue-600); }
+.button-light:disabled { cursor: wait; opacity: .7; }
+.form-honeypot { position: absolute !important; left: -10000px !important; width: 1px !important; height: 1px !important; overflow: hidden !important; }
 .form-status { min-height: 17px; margin: -8px 0 0; color: #65dcae; font-size: 11px; line-height: 1.45; }
+.form-status.is-error { color: #ffb6ad; }
 
 /* Pie de página */
 .site-footer { color: white; background: var(--navy-950); }

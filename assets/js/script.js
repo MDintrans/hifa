@@ -4,6 +4,31 @@ const mobileMenu = document.querySelector('#mobile-menu');
 const projectForm = document.querySelector('#project-form');
 const formStatus = document.querySelector('#form-status');
 const backTopLink = document.querySelector('.back-top');
+const whatsappLink = document.querySelector('#whatsapp-link');
+const emailLink = document.querySelector('#email-link');
+const emailLabel = document.querySelector('#contact-email-label');
+const contactConfig = window.HIFA_CONTACT || {};
+
+// Activa los canales cuando sus datos estén definidos en contact-config.js.
+const whatsappNumber = String(contactConfig.whatsappNumber || '').replace(/\D/g, '');
+const contactEmail = String(contactConfig.contactEmail || '').trim();
+const formEndpoint = String(contactConfig.formEndpoint || '').trim();
+
+if (whatsappNumber) {
+  const whatsappMessage = encodeURIComponent('Hola HIFA Systems, quiero conversar sobre un proyecto.');
+  whatsappLink.href = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+  whatsappLink.removeAttribute('aria-disabled');
+} else {
+  whatsappLink.addEventListener('click', (event) => event.preventDefault());
+}
+
+if (contactEmail) {
+  emailLink.href = `mailto:${contactEmail}?subject=${encodeURIComponent('Consulta desde el sitio de HIFA Systems')}`;
+  emailLabel.textContent = contactEmail;
+  emailLink.removeAttribute('aria-disabled');
+} else {
+  emailLink.addEventListener('click', (event) => event.preventDefault());
+}
 
 // Cambia la apariencia de la cabecera al desplazarse por la página.
 const updateHeader = () => header.classList.toggle('scrolled', window.scrollY > 20);
@@ -61,10 +86,13 @@ if ('IntersectionObserver' in window) {
   revealItems.forEach((item) => item.classList.add('is-visible'));
 }
 
-// Genera un resumen descargable sin enviar información fuera del dispositivo.
-projectForm.addEventListener('submit', (event) => {
+// Envía el formulario al servicio configurado. Mientras no exista un endpoint,
+// conserva la solicitud como archivo local para no perder la información.
+projectForm.addEventListener('submit', async (event) => {
   event.preventDefault();
   const data = new FormData(projectForm);
+  const name = String(data.get('nombre')).trim();
+  const email = String(data.get('email')).trim();
   const project = String(data.get('proyecto')).trim();
   const service = String(data.get('servicio')).trim();
   const challenge = String(data.get('desafio')).trim();
@@ -73,6 +101,8 @@ projectForm.addEventListener('submit', (event) => {
     'SOLICITUD DE PROYECTO — HIFA SYSTEMS',
     '=====================================',
     '',
+    `Nombre: ${name}`,
+    `Correo: ${email}`,
     `Proyecto: ${project}`,
     `Servicio: ${service}`,
     '',
@@ -81,6 +111,37 @@ projectForm.addEventListener('submit', (event) => {
     '',
     'Documento preparado desde el sitio de HIFA Systems.'
   ].join('\n');
+
+  formStatus.classList.remove('is-error');
+
+  if (formEndpoint) {
+    const submitButton = projectForm.querySelector('button[type="submit"]');
+    const originalLabel = submitButton.innerHTML;
+    submitButton.disabled = true;
+    submitButton.textContent = 'Enviando…';
+    formStatus.textContent = 'Estamos enviando tu solicitud.';
+
+    try {
+      const response = await fetch(formEndpoint, {
+        method: 'POST',
+        body: data,
+        headers: { Accept: 'application/json' }
+      });
+
+      if (!response.ok) throw new Error(`Error ${response.status}`);
+
+      projectForm.reset();
+      formStatus.textContent = '¡Gracias! Recibimos tu solicitud y te contactaremos pronto.';
+    } catch (error) {
+      formStatus.classList.add('is-error');
+      formStatus.textContent = 'No pudimos enviar la solicitud. Intenta nuevamente o utiliza uno de los canales directos.';
+    } finally {
+      submitButton.disabled = false;
+      submitButton.innerHTML = originalLabel;
+    }
+
+    return;
+  }
 
   const file = new Blob([summary], { type: 'text/plain;charset=utf-8' });
   const url = URL.createObjectURL(file);
@@ -99,7 +160,8 @@ projectForm.addEventListener('submit', (event) => {
   download.remove();
   URL.revokeObjectURL(url);
 
-  formStatus.textContent = 'Tu resumen está listo. Descárgalo y compártelo por el canal oficial de HIFA Systems.';
+  formStatus.classList.add('is-error');
+  formStatus.textContent = 'El envío por correo aún no está configurado. Guardamos una copia local de tu solicitud.';
 });
 
 // Mantiene actualizado el año del pie de página.
