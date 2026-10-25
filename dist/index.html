@@ -378,18 +378,18 @@
             <h2>Hagamos realidad<br /><span>tu idea.</span></h2>
             <p>Cuéntanos brevemente qué quieres resolver o escríbenos directamente por el canal que prefieras.</p>
             <div class="contact-channels" aria-label="Canales de contacto">
-              <a class="contact-channel contact-channel-whatsapp" id="whatsapp-link" href="#" target="_blank" rel="noopener noreferrer" aria-disabled="true">
+              <a class="contact-channel contact-channel-whatsapp" id="whatsapp-link" data-contact-whatsapp href="#" target="_blank" rel="noopener noreferrer" aria-disabled="true">
                 <span class="contact-channel-icon" aria-hidden="true">
                   <svg viewBox="0 0 24 24"><path d="M20.5 11.7a8.4 8.4 0 0 1-12.4 7.4L3 20.5l1.4-5A8.4 8.4 0 1 1 20.5 11.7Z"/><path d="M8.3 7.5c.2-.4.4-.4.7-.4h.5l.3.2c.1.3.7 1.7.7 1.8.1.1.1.3 0 .5l-.4.5-.5.5c-.2.1-.3.3-.1.6.2.3.8 1.4 1.8 2.2 1.2 1.1 2.2 1.4 2.5 1.5.3.1.5 0 .7-.2l.8-1c.2-.3.4-.3.7-.2l1.8.8c.3.2.5.2.6.4.1.1.1.7-.2 1.3-.3.6-1.5 1.2-2.1 1.2-.6.1-1.4.1-2.3-.2-.5-.2-1.2-.4-2.1-.8-.9-.4-3.9-1.4-6.6-4.9-.8-1.1-1.4-2.4-1.5-3.2-.2-.8 0-1.8.5-2.3Z"/></svg>
                 </span>
                 <span><small>Respuesta rápida</small><strong>WhatsApp</strong></span>
                 <span class="contact-channel-arrow" aria-hidden="true">↗</span>
               </a>
-              <a class="contact-channel" id="email-link" href="#" aria-disabled="true">
+              <a class="contact-channel" id="email-link" data-contact-email href="#" aria-disabled="true">
                 <span class="contact-channel-icon" aria-hidden="true">
                   <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg>
                 </span>
-                <span><small>Escríbenos a</small><strong id="contact-email-label">Correo</strong></span>
+                <span><small>Escríbenos a</small><strong id="contact-email-label" data-contact-email-label>Correo</strong></span>
                 <span class="contact-channel-arrow" aria-hidden="true">↗</span>
               </a>
             </div>
@@ -422,20 +422,68 @@
       </section>
     </main>
 
-    <!-- Pie de página institucional -->
+    <!-- Pie de página institucional y navegación secundaria -->
     <footer class="site-footer">
-      <div class="shell footer-top">
-        <a class="brand footer-brand" href="#inicio" aria-label="HIFA Systems, volver al inicio">
-          <img class="brand-logo" src="./assets/img/logo-hifa-dark.svg" alt="HIFA Systems" />
-        </a>
-        <p>Tecnología que conecta tu negocio.</p>
+      <div class="shell footer-main">
+        <div class="footer-intro">
+          <a class="brand footer-brand" href="#inicio" aria-label="HIFA Systems, volver al inicio">
+            <img class="brand-logo" src="./assets/img/logo-hifa-dark.svg" alt="HIFA Systems" />
+          </a>
+          <p>Diseñamos sitios, aplicaciones y automatizaciones que convierten ideas en herramientas reales.</p>
+          <div class="footer-location">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+            <span>Chile</span><i></i><span>Proyectos remotos</span>
+          </div>
+        </div>
+
+        <nav class="footer-column footer-nav" aria-label="Navegación del pie de página">
+          <p class="footer-heading">Explorar</p>
+          <a href="#servicios">Servicios <span aria-hidden="true">↗</span></a>
+          <a href="#proyectos">Proyectos <span aria-hidden="true">↗</span></a>
+          <a href="#enfoque">Enfoque <span aria-hidden="true">↗</span></a>
+          <a href="#proceso">Proceso <span aria-hidden="true">↗</span></a>
+          <a href="#contacto">Contacto <span aria-hidden="true">↗</span></a>
+        </nav>
+
+        <div class="footer-column footer-contact">
+          <p class="footer-heading">Hablemos</p>
+          <p>¿Tienes una idea o un desafío? Elige el canal que te resulte más cómodo.</p>
+          <div class="footer-contact-list">
+            <a class="footer-contact-link" data-contact-email href="#" aria-disabled="true">
+              <span class="footer-contact-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg>
+              </span>
+              <span><small>Correo</small><strong data-contact-email-label>Por configurar</strong></span>
+            </a>
+            <a class="footer-contact-link footer-whatsapp-link" data-contact-whatsapp href="#" target="_blank" rel="noopener noreferrer" aria-disabled="true">
+              <span class="footer-contact-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M20.5 11.7a8.4 8.4 0 0 1-12.4 7.4L3 20.5l1.4-5A8.4 8.4 0 1 1 20.5 11.7Z"/><path d="M8.3 7.5c.2-.4.4-.4.7-.4h.5l.3.2c.1.3.7 1.7.7 1.8.1.1.1.3 0 .5l-.4.5-.5.5c-.2.1-.3.3-.1.6.2.3.8 1.4 1.8 2.2 1.2 1.1 2.2 1.4 2.5 1.5.3.1.5 0 .7-.2l.8-1c.2-.3.4-.3.7-.2l1.8.8c.3.2.5.2.6.4.1.1.1.7-.2 1.3-.3.6-1.5 1.2-2.1 1.2-.6.1-1.4.1-2.3-.2-.5-.2-1.2-.4-2.1-.8-.9-.4-3.9-1.4-6.6-4.9-.8-1.1-1.4-2.4-1.5-3.2-.2-.8 0-1.8.5-2.3Z"/></svg>
+              </span>
+              <span><small>Respuesta rápida</small><strong>WhatsApp</strong></span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="shell footer-bottom">
+        <div class="footer-meta">
+          <span>© <span id="year"></span> HIFA Systems</span>
+          <button class="footer-privacy" type="button" id="open-privacy">Aviso de privacidad</button>
+        </div>
         <a class="back-top" href="#inicio" aria-label="Volver al inicio de la página">Volver arriba <span aria-hidden="true">↑</span></a>
       </div>
-      <div class="shell footer-bottom">
-        <span>© <span id="year"></span> HIFA Systems</span>
-        <span>Soluciones digitales a medida</span>
-      </div>
     </footer>
+
+    <dialog class="privacy-dialog" id="privacy-dialog" aria-labelledby="privacy-title">
+      <div class="privacy-dialog-header">
+        <p class="kicker">Privacidad</p>
+        <button type="button" id="close-privacy" aria-label="Cerrar aviso de privacidad">×</button>
+      </div>
+      <h2 id="privacy-title">Tus datos, con un propósito claro.</h2>
+      <p>La información que ingreses en el formulario se utilizará únicamente para responder tu consulta y evaluar tu proyecto. HIFA Systems no comercializa tus datos.</p>
+      <p>Mientras el envío en línea no esté configurado, el sitio genera una copia local en tu dispositivo. Al habilitarse, los datos se transmitirán mediante el proveedor de formularios indicado por HIFA Systems.</p>
+      <button class="button button-primary privacy-close-action" type="button" data-close-privacy>Entendido</button>
+    </dialog>
 
     <script src="./assets/js/contact-config.js"></script>
     <script src="./assets/js/script.js"></script>

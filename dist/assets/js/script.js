@@ -4,9 +4,12 @@ const mobileMenu = document.querySelector('#mobile-menu');
 const projectForm = document.querySelector('#project-form');
 const formStatus = document.querySelector('#form-status');
 const backTopLink = document.querySelector('.back-top');
-const whatsappLink = document.querySelector('#whatsapp-link');
-const emailLink = document.querySelector('#email-link');
-const emailLabel = document.querySelector('#contact-email-label');
+const whatsappLinks = document.querySelectorAll('[data-contact-whatsapp]');
+const emailLinks = document.querySelectorAll('[data-contact-email]');
+const emailLabels = document.querySelectorAll('[data-contact-email-label]');
+const privacyDialog = document.querySelector('#privacy-dialog');
+const openPrivacyButton = document.querySelector('#open-privacy');
+const closePrivacyButtons = document.querySelectorAll('#close-privacy, [data-close-privacy]');
 const contactConfig = window.HIFA_CONTACT || {};
 
 // Activa los canales cuando sus datos estén definidos en contact-config.js.
@@ -16,18 +19,22 @@ const formEndpoint = String(contactConfig.formEndpoint || '').trim();
 
 if (whatsappNumber) {
   const whatsappMessage = encodeURIComponent('Hola HIFA Systems, quiero conversar sobre un proyecto.');
-  whatsappLink.href = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
-  whatsappLink.removeAttribute('aria-disabled');
+  whatsappLinks.forEach((link) => {
+    link.href = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+    link.removeAttribute('aria-disabled');
+  });
 } else {
-  whatsappLink.addEventListener('click', (event) => event.preventDefault());
+  whatsappLinks.forEach((link) => link.addEventListener('click', (event) => event.preventDefault()));
 }
 
 if (contactEmail) {
-  emailLink.href = `mailto:${contactEmail}?subject=${encodeURIComponent('Consulta desde el sitio de HIFA Systems')}`;
-  emailLabel.textContent = contactEmail;
-  emailLink.removeAttribute('aria-disabled');
+  emailLinks.forEach((link) => {
+    link.href = `mailto:${contactEmail}?subject=${encodeURIComponent('Consulta desde el sitio de HIFA Systems')}`;
+    link.removeAttribute('aria-disabled');
+  });
+  emailLabels.forEach((label) => { label.textContent = contactEmail; });
 } else {
-  emailLink.addEventListener('click', (event) => event.preventDefault());
+  emailLinks.forEach((link) => link.addEventListener('click', (event) => event.preventDefault()));
 }
 
 // Cambia la apariencia de la cabecera al desplazarse por la página.
@@ -61,6 +68,13 @@ backTopLink.addEventListener('click', (event) => {
 
   window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
   if (window.location.hash !== '#inicio') history.pushState(null, '', '#inicio');
+});
+
+// Presenta el aviso de privacidad sin abandonar la página.
+openPrivacyButton.addEventListener('click', () => privacyDialog.showModal());
+closePrivacyButtons.forEach((button) => button.addEventListener('click', () => privacyDialog.close()));
+privacyDialog.addEventListener('click', (event) => {
+  if (event.target === privacyDialog) privacyDialog.close();
 });
 
 // Muestra progresivamente los bloques cuando entran en el área visible.
