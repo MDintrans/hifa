@@ -261,10 +261,10 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 .browser-live { display: flex; align-items: center; justify-self: end; gap: 6px; color: #8eb6d2; }
 .browser-live i { width: 6px; height: 6px; background: #31d09b; border-radius: 50%; box-shadow: 0 0 0 4px rgba(49,208,155,.1); }
 .project-preview img {
-  display: block; width: 100%; height: 464px; object-fit: cover; object-position: top center;
-  transition: transform .55s cubic-bezier(.2,.7,.25,1), filter .35s ease;
+  display: block; width: 100%; height: 464px; object-fit: contain; object-position: top center;
+  transition: filter .35s ease;
 }
-.portfolio-project:hover .project-preview img { transform: scale(1.018); filter: saturate(1.04); }
+.portfolio-project:hover .project-preview img { filter: saturate(1.04); }
 .project-copy { display: flex; justify-content: center; flex-direction: column; padding: 46px; }
 .project-meta { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-bottom: 27px; }
 .project-meta span { color: #8495a5; font: 700 9px "Manrope", sans-serif; letter-spacing: .12em; text-transform: uppercase; }
@@ -451,7 +451,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
   .portfolio-project, .portfolio-project-reverse { grid-template-columns: 1fr; min-height: auto; }
   .portfolio-project-reverse .project-preview, .portfolio-project-reverse .project-copy { order: initial; }
   .project-preview { min-height: auto; }
-  .project-preview img { height: auto; aspect-ratio: 1.65 / 1; }
+  .project-preview img { height: auto; aspect-ratio: auto; }
   .project-copy { padding: 42px; }
   .connected-grid { grid-template-columns: 1fr; }
   .system-map { max-width: 640px; width: 100%; margin-inline: auto; }
