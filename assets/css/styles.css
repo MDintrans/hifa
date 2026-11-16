@@ -121,7 +121,6 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 .hero-proof { display: flex; gap: 0; margin-top: 48px; }
 .hero-proof div { display: grid; min-width: 145px; padding: 0 20px; border-left: 1px solid var(--line); }
 .hero-proof div:first-child { padding-left: 0; border-left: 0; }
-.hero-proof strong { margin-bottom: 6px; color: var(--blue-500); font: 700 10px/1 "Manrope"; }
 .hero-proof span { color: #526278; font-size: 12px; font-weight: 600; }
 
 .hero-visual { position: relative; min-height: 620px; z-index: 2; }
@@ -187,7 +186,6 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 .code-top { display: flex; justify-content: space-between; padding: 10px 13px; background: #0c2c45; border-bottom: 1px solid rgba(255,255,255,.07); font-size: 7px; }
 .code-top i { width: 5px; height: 5px; background: #35d9a1; border-radius: 50%; box-shadow: 0 0 8px #35d9a1; }
 .floating-code pre { margin: 0; padding: 13px; font: 7px/2.1 ui-monospace, SFMono-Regular, Consolas, monospace; }
-.floating-code code span { color: #44647c; }
 .floating-code code b { color: #2bbcf2; font-weight: 500; }
 .floating-app {
   position: absolute; left: -24px; bottom: 36px; display: flex; width: 142px; height: 215px; flex-direction: column; align-items: center;
@@ -220,8 +218,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 .service-card:hover { transform: translateY(-8px); border-color: #c4dbef; box-shadow: var(--shadow); }
 .service-card.featured { background: linear-gradient(155deg, #f0f9ff 0, white 70%); border-color: #bcdcf5; box-shadow: 0 25px 65px rgba(8, 75, 122, .1); }
 .service-card.featured::before { content: "Más posibilidades"; position: absolute; top: 18px; left: 50%; padding: 6px 10px; color: var(--blue-600); background: white; border: 1px solid #d5e8f8; border-radius: 99px; transform: translateX(-50%); font: 700 8px "Manrope"; letter-spacing: .1em; text-transform: uppercase; }
-.service-top { display: flex; justify-content: space-between; align-items: center; }
-.service-number { color: #9aa9b7; font: 700 10px "Manrope"; }
+.service-top { display: flex; justify-content: flex-end; align-items: center; }
 .service-arrow { display: grid; place-items: center; width: 34px; height: 34px; color: var(--blue-600); background: white; border: 1px solid #dce7f0; border-radius: 50%; transition: transform .3s ease; }
 .service-card:hover .service-arrow { transform: rotate(45deg); }
 .service-icon { display: grid; place-items: center; width: 62px; height: 62px; margin: 60px 0 28px; color: var(--blue-600); background: #e7f4ff; border-radius: 16px; }
@@ -262,11 +259,11 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 .browser-live i { width: 6px; height: 6px; background: #31d09b; border-radius: 50%; box-shadow: 0 0 0 4px rgba(49,208,155,.1); }
 .project-preview img {
   display: block; width: 100%; height: 464px; object-fit: contain; object-position: top center;
-  transition: filter .35s ease;
+  transition: transform .55s cubic-bezier(.2,.7,.25,1), filter .35s ease;
 }
-.portfolio-project:hover .project-preview img { filter: saturate(1.04); }
+.portfolio-project:hover .project-preview img { transform: scale(1.018); filter: saturate(1.04); }
 .project-copy { display: flex; justify-content: center; flex-direction: column; padding: 46px; }
-.project-meta { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-bottom: 27px; }
+.project-meta { display: flex; align-items: center; justify-content: flex-end; gap: 14px; margin-bottom: 27px; }
 .project-meta span { color: #8495a5; font: 700 9px "Manrope", sans-serif; letter-spacing: .12em; text-transform: uppercase; }
 .project-meta span:last-child { padding: 7px 10px; color: var(--blue-600); background: #edf7ff; border-radius: 99px; letter-spacing: .06em; }
 .project-copy h3 { margin: 0 0 18px; font: 700 clamp(31px, 3.2vw, 44px)/1.06 "Manrope", sans-serif; letter-spacing: -.045em; }
@@ -322,7 +319,6 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 .process-list { display: grid; grid-template-columns: repeat(4, 1fr); }
 .process-item { position: relative; min-height: 260px; padding: 0 30px; border-left: 1px solid #dbe6ee; }
 .process-item:first-child { padding-left: 0; border-left: 0; }
-.process-index { color: #8fa0b0; font: 700 9px "Manrope"; }
 .process-name { display: flex; align-items: center; gap: 13px; margin: 48px 0 22px; }
 .process-name span { display: grid; place-items: center; width: 42px; height: 42px; color: var(--blue-600); background: #e6f4ff; border-radius: 12px; font: 700 11px ui-monospace, monospace; }
 .process-name h3 { margin: 0; font: 700 19px "Manrope"; }
